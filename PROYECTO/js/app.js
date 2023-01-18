@@ -51,7 +51,25 @@ function agregarDato() {
     // Mostramos el objeto creado en la última posición de su lista
     arrayDatos[2].innerHTML += ultimaPos(arrayDatos[1]); // Ej.: listaGastos.innerHTML += ultimaPos(gastos);
 
-    // Actualizamos el contenido de la página
-    actualizarElementos(arrayDatos[2], arrayDatos[1]); // Ej.: actualizarElementos(listaIngresos);
 }
 
+/*
+Elimina un dato de su lista 
+- listaTipoDato --> 'listaIngresos' o 'listaGastos'
+- tipoDatos --> 'ingresos' o 'gastos'
+- numero --> posición del array del dato a eliminar
+*/
+function eliminarDato(listaTipoDato, tipoDatos, numero) {
+
+    // Eliminamos el dato del saldo y el ingreso o gasto total
+    tipoDatos[numero].eliminarDato();
+
+    // Eliminamos el objeto del array
+    tipoDatos.splice(numero, 1);
+
+    // Eliminamos el dato de la lista HTML
+    listaTipoDato.getElementsByClassName("elemento")[numero].remove();
+
+    // Actualizamos el contenido de la página
+    actualizarElementos(listaTipoDato, tipoDatos);
+}
