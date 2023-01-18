@@ -74,3 +74,23 @@ function actualizarElementos(listaTipoDato, tipoDatos) {
     gastoTotal.innerHTML = Gasto.gastosTotal;
 }
 
+/*
+Elimina un dato de su lista 
+- listaTipoDato --> 'listaIngresos' o 'listaGastos'
+- tipoDatos --> 'ingresos' o 'gastos'
+- numero --> posición del array del dato a eliminar
+*/
+function eliminarDato(listaTipoDato, tipoDatos, numero) {
+
+    // Eliminamos el dato del saldo y el ingreso o gasto total
+    tipoDatos[numero].eliminarDato();
+
+    // Eliminamos el objeto del array
+    tipoDatos.splice(numero, 1);
+
+    // Eliminamos el dato de la lista HTML
+    listaTipoDato.getElementsByClassName("elemento")[numero].remove();
+
+    // Actualizamos el contenido de la página
+    actualizarElementos(listaTipoDato, tipoDatos);
+}
