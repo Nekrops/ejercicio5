@@ -55,3 +55,22 @@ function agregarDato() {
     actualizarElementos(arrayDatos[2], arrayDatos[1]); // Ej.: actualizarElementos(listaIngresos);
 }
 
+/*
+Actualiza los porcentajes de una lista, los eventos de los botones que eliminan un dato de una lista y el saldo, ingreso y gasto totales
+- listaTipoDato --> 'listaIngresos' o 'listaGastos'
+- tipoDatos --> 'ingresos' o 'gastos'
+*/
+function actualizarElementos(listaTipoDato, tipoDatos) {
+
+    // Actualizamos los porcentajes y eventos de los botones
+    for (let i = 0; i < tipoDatos.length; i++) {
+        listaTipoDato.getElementsByClassName("elemento_porcentaje")[i].innerHTML = tipoDatos[i].porcentaje(); // Actualiza el porcentaje
+        listaTipoDato.getElementsByClassName("elemento_eliminar--btn")[i].onclick = function () { eliminarDato(listaTipoDato, tipoDatos, i); }; // Actualiza el evento del botón
+    }
+
+    // Actualizamos el saldo, ingreso y gasto totales
+    saldoTotal.innerHTML = Dato.saldoTotal;
+    ingresoTotal.innerHTML = Ingreso.ingresosTotal;
+    gastoTotal.innerHTML = Gasto.gastosTotal;
+}
+
