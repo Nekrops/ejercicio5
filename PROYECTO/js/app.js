@@ -50,8 +50,5 @@ function agregarDato() {
 
     // Mostramos el objeto creado en la última posición de su lista
     arrayDatos[2].innerHTML += ultimaPos(arrayDatos[1]); // Ej.: listaGastos.innerHTML += ultimaPos(gastos);
-
-    // Actualizamos el contenido de la página
-    actualizarElementos(arrayDatos[2], arrayDatos[1]); // Ej.: actualizarElementos(listaIngresos);
 }
 
